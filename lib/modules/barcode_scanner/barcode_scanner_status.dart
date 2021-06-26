@@ -1,5 +1,3 @@
-import 'package:camera/camera.dart';
-
 class BarcodeScannerStatus {
   final bool isAvailable;
   final String error;
@@ -34,7 +32,7 @@ class BarcodeScannerStatus {
 
   bool get hasBarcode => barcode.isNotEmpty;
 
-  BarcodeScannerStatus copyWith({
+/*  BarcodeScannerStatus copyWith({
     bool? isAvailable,
     String? error,
     String? barcode,
@@ -47,5 +45,5 @@ class BarcodeScannerStatus {
       barcode: barcode ?? this.barcode,
       stopScanner: stopScanner ?? this.stopScanner,
     );
-  }
+  }*/
 }

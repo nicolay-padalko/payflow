@@ -79,16 +79,13 @@ class BarcodeScannerController {
               allBytes.putUint8List(plane.bytes);
             }
             final bytes = allBytes.done().buffer.asUint8List();
-
             final Size imageSize = Size(
                 cameraImage.width.toDouble(), cameraImage.height.toDouble());
             final InputImageRotation imageRotation =
                 InputImageRotation.Rotation_0deg;
-
             final InputImageFormat inputImageFormat =
                 InputImageFormatMethods.fromRawValue(cameraImage.format.raw) ??
                     InputImageFormat.NV21;
-
             final planeData = cameraImage.planes.map(
               (Plane plane) {
                 return InputImagePlaneMetadata(
@@ -107,7 +104,8 @@ class BarcodeScannerController {
             );
             final inputImageCamera = InputImage.fromBytes(
                 bytes: bytes, inputImageData: inputImageData);
-            await scannerBarCode(inputImageCamera);
+
+            scannerBarCode(inputImageCamera);
           } catch (e) {
             print(e);
           }
